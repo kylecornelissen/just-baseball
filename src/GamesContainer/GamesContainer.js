@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 import './GamesContainer.scss';
+import GameCard from '../GameCard/GameCard';
 import {getGames} from '../apiCalls';
 import {setGames} from '../actions/actions';
 
@@ -9,13 +10,23 @@ import {setGames} from '../actions/actions';
 class GamesContainer extends Component {
   async componentDidMount() {
     const date = '07/01/2018';
-    const games = await getGames(date);
+    let games = await getGames(date);
+    games = this.filterGames(games);
     this.props.setGames(games);
+  }
+  filterGames = (games) => {
+    return games.map(game => {
+      return {
+        id: game.gamePk,
+        awayTeam: game.teams.away.team,
+        homeTeam: game.teams.home.team
+      }
+    })
   }
   render() {
     const { games } = this.props;
     const gameCards = games.map(game => {
-      return <h3>{game.teams.away.team.name} at {game.teams.home.team.name}</h3>
+      return <GameCard key={game.gamePk} game={game} />
     });
 
     return (
