@@ -4,7 +4,7 @@ import './HighlightCard.scss';
 
 export const HighlightCard = ({highlight, bigVid}) => {
   const featureVid = (
-    <video className="highlight-vid" align="left" controls loop>
+    <video className="highlight-vid" align="left" controls autoplay="autoplay" loop>
       <source src={highlight.videoURL} type="video/mp4"/>
       Your browser does not support the video tag.
     </video>
