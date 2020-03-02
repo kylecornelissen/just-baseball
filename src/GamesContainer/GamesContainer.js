@@ -9,17 +9,20 @@ import {setGames} from '../actions/actions';
 
 class GamesContainer extends Component {
   async componentDidMount() {
-    const date = '07/01/2018';
+    const date = '08/30/2017';
     let games = await getGames(date);
     games = this.filterGames(games);
     this.props.setGames(games);
   }
   filterGames = (games) => {
+    console.log(games);
     return games.map(game => {
       return {
         id: game.gamePk,
         awayTeam: game.teams.away.team,
-        homeTeam: game.teams.home.team
+        awayScore: game.teams.away.score,
+        homeTeam: game.teams.home.team,
+        homeScore: game.teams.home.score
       }
     })
   }
@@ -30,10 +33,10 @@ class GamesContainer extends Component {
     });
 
     return (
-      <>
-        <h2>Today's Games</h2>
-        <section>{gameCards}</section>
-      </>
+      <section className="games-container">
+        <h2>This Date's Games</h2>
+        <div>{gameCards}</div>
+      </section>
     )
   }
 }
