@@ -20,5 +20,5 @@ export const getHighlights = async (gameID) => {
     throw new Error('Invalid.');
   }
   const highlights = await res.json();
-  return highlights.highlights.live.items;
+  return highlights;
 }
