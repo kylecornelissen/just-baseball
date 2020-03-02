@@ -10,9 +10,13 @@ import {setGames} from '../actions/actions';
 class GamesContainer extends Component {
   async componentDidMount() {
     const date = '08/30/2017';
-    let games = await getGames(date);
-    games = this.filterGames(games);
-    this.props.setGames(games);
+    try {
+      let games = await getGames(date);
+      games = this.filterGames(games.dates[0].games);
+      this.props.setGames(games);
+    } catch ({message}) {
+      console.log(message);
+    }
   }
   filterGames = (games) => {
     console.log(games);

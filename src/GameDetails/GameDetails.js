@@ -16,10 +16,14 @@ class GameDetails extends Component {
     }
   }
   async componentDidMount() {
-    let highlights = await getHighlights(this.props.location.state.id);
-    highlights = await this.filterHighlights(highlights);
-    this.props.setHighlights(highlights);
-    this.setState({bigHighlight: this.state.recap || this.state.condensedGame|| this.props.highlights[0]});
+    try {
+      let highlights = await getHighlights(this.props.location.state.id);
+      highlights = await this.filterHighlights(highlights.highlights.live.items);
+      this.props.setHighlights(highlights);
+      this.setState({bigHighlight: this.state.recap || this.state.condensedGame|| this.props.highlights[0]});
+    } catch ({message}) {
+      console.log(message);
+    }
   }
   filterHighlights = (highlights) => {
     highlights = highlights.map(highlight => {
