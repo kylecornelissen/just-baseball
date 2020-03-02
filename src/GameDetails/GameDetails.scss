@@ -12,29 +12,33 @@
 }
 
 .game-title-bar {
+  grid-area: heading;
   border: 3px solid $blueaqua;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 95%;
+  width: 94%;
   background: rgba(173,216,229,0.3);
   border-radius: 10px;
   box-shadow: 3px 3px 6px 1px black;
 }
 
 .game-title-heading {
-  grid-area: heading;
   color: $blueaqua;
-  margin: 0;
-  font-size: 1.5vw;
+  font-family: $raleway;
+  font-size: 1.8vw;
   font-weight: 400;
+  margin: 0;
 }
 
 .score-text {
   color: $white;
-  font-size: 2.4vw;
+  font-size: 1.7vw;
   margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 2;
 }
 
 .game-heading-logo {

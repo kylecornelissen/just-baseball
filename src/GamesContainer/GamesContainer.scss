@@ -1,0 +1,16 @@
+.games-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 70px 10px;
+  padding-top: 2%;
+  >h2 {
+    text-align: center;
+  }
+  >div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
