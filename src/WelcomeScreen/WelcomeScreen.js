@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './WelcomeScreen.scss';
 
 export const WelcomeScreen = () => {
-  console.log('welcome');
   return (
     <section className="welcome-screen">
       <img src={process.env.PUBLIC_URL + '/baseball-logo.png'} />

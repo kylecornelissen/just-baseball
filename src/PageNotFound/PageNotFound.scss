@@ -1,0 +1,36 @@
+@import '../variables.scss';
+
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4%;
+  padding: 5%;
+  >img {
+    padding: 0;
+    margin: 0;
+    width: 250px
+  }
+  >h1 {
+    font-size: 80px;
+    margin-bottom: 18px;
+  }
+  >h3 {
+    font-size: 40px;
+    margin: 0;
+  }
+  >.back-btn {
+    text-decoration: none;
+    color: $blueaqua;
+    border: 5px solid $blueaqua;
+    border-radius: 4px;
+    padding: 3% 5%;
+    font-size: 25px;
+  }
+}
+
+
+.back-btn:hover {
+  color: $white;
+}
