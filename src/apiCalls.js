@@ -9,7 +9,7 @@ export const getGames = async (date) => {
     throw new Error('Invalid.');
   }
   const games = await res.json();
-  return games.dates[0].games;
+  return games;
 }
 
 // example: /game/530661/content
