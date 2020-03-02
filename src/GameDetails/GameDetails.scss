@@ -4,11 +4,11 @@
   padding: 0% 10%;
   margin-top: 100px;
   display: grid;
-  justify-content: center;
   grid-template-columns: 72.5% 5% 22.5%;
   grid-template-areas:
     "heading empty morehighlights"
     "bigvid empty thumbs";
+
 }
 
 .game-title-bar {
@@ -49,8 +49,8 @@
 .game-heading-logo {
   border-radius: 5px;
   background: lightBlue;
-  height: 35px;
-  width: 35px;
+  height: 4%;
+  width: 4%;
   padding: 5px;
   box-shadow: 0px 0px 6px 2px black;
 }
@@ -85,6 +85,7 @@
   grid-area: thumbs;
   padding-top: 2%;
   width:100%;
+  height: 62.5vh;
 }
 
 .highlight-container {
@@ -95,7 +96,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 62.5vh;
+  height: 100%;
   position: relative;
   overflow-y: scroll;
   margin: 0;
