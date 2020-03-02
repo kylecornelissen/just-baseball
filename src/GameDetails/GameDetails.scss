@@ -1,14 +1,14 @@
 @import '../variables.scss';
 
 .game-details {
-  padding: 0% 4%;
+  padding: 0% 10%;
   margin-top: 100px;
   display: grid;
   justify-content: center;
-  grid-template-columns: 75% 25%;
+  grid-template-columns: 72.5% 5% 22.5%;
   grid-template-areas:
-    "heading highlights-heading"
-    "bigvid thumbs";
+    "heading empty morehighlights"
+    "bigvid empty thumbs";
 }
 
 .game-title-bar {
@@ -18,16 +18,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 94%;
+  width: 99%;
   background: rgba(173,216,229,0.3);
   border-radius: 10px;
   box-shadow: 3px 3px 6px 1px black;
+  margin-right: 5%;
 }
 
 .game-title-heading {
   color: $blueaqua;
   font-family: $raleway;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
   font-weight: 400;
   margin: 0;
   text-shadow: 3px 2px 2px #1f2833;
@@ -52,6 +53,7 @@
 }
 
 .more-highlights-heading {
+  grid-area: morehighlights;
   color: $white;
   text-align: center;
   display: flex;
@@ -67,7 +69,8 @@
   grid-area: bigvid;
   align-items: left;
   width: 100%;
-  padding-top: 2%;
+  padding-top: 4%;
+  margin-right: 2%;
 }
 
 .big-vid-title {
@@ -78,6 +81,7 @@
 .scroll-container {
   grid-area: thumbs;
   padding-top: 2%;
+  width:100%;
 }
 
 .highlight-container {
@@ -91,6 +95,7 @@
   height: 65vh;
   position: relative;
   overflow-y: scroll;
+  margin: 0;
 }
 
 .scroll-up-arrow {
