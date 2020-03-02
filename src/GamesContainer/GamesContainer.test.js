@@ -1,3 +1,5 @@
+import React from 'react';
+import { shallow } from 'enzyme';
 import { GamesContainer, mapStateToProps, mapDispatchToProps } from './GamesContainer';
 import { setGames } from '../actions/actions';
 

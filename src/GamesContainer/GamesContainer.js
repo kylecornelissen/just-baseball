@@ -6,7 +6,6 @@ import GameCard from '../GameCard/GameCard';
 import {getGames} from '../apiCalls';
 import {setGames} from '../actions/actions';
 
-
 class GamesContainer extends Component {
   async componentDidMount() {
     const date = '08/30/2017';
