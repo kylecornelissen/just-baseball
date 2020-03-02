@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import GamesContainer from '../GamesContainer/GamesContainer';
 import GameDetails from '../GameDetails/GameDetails';
 import WelcomeScreen from '../WelcomeScreen/WelcomeScreen';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -14,8 +15,11 @@ function App() {
           <Route exact path="/" component={WelcomeScreen} />
           <Route path="/:header" component={Header} />
         </Switch>
-        <Route exact path="/games" component={GamesContainer} />
-        <Route exact path="/game/:id" component={GameDetails} />
+        <Switch>
+          <Route exact path="/games" component={GamesContainer} />
+          <Route exact path="/game/:id" component={GameDetails} />
+          <Route path="/:undefined_path" component={PageNotFound} />
+        </Switch>
       </main>
     </Router>
   );
