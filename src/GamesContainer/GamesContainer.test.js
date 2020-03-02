@@ -1,5 +1,5 @@
 import { GamesContainer, mapStateToProps, mapDispatchToProps } from './GamesContainer';
-import {setGames} from '../actions/actions';
+import { setGames } from '../actions/actions';
 
 describe('GamesContainer', () => {
   const games = [
