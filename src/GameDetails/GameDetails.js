@@ -19,7 +19,7 @@ class GameDetails extends Component {
     let highlights = await getHighlights(this.props.location.state.id);
     highlights = await this.filterHighlights(highlights);
     this.props.setHighlights(highlights);
-    this.setState({bigHighlight: this.state.condensedGame || this.state.recap || this.props.highlights[0]});
+    this.setState({bigHighlight: this.state.recap || this.state.condensedGame|| this.props.highlights[0]});
   }
   filterHighlights = (highlights) => {
     highlights = highlights.map(highlight => {
@@ -53,16 +53,18 @@ class GameDetails extends Component {
     return time.join('');
   }
   changeHighlight = ({id}) => {
-    const bigHighlight = this.props.highlights.find(highlight => highlight.id === id);
+    const { condensedGame, recap } = this.state;
+    let bigHighlight = this.props.highlights.find(highlight => highlight.id === id);
+    if (condensedGame.id === id) { bigHighlight = condensedGame}
+    if (recap.id === id) { bigHighlight = recap }
     this.setState({bigHighlight});
   }
   render() {
-    const { condensedGame, recap } = this.state;
+    const { condensedGame, recap, bigHighlight } = this.state;
     const game = this.props.location.state;
     const highlights = this.props.highlights.map(highlight => {
       return <HighlightCard key={highlight.id} highlight={highlight} />
     });
-    const { bigHighlight } = this.state;
 
     return (
       <article className="game-details">
@@ -81,6 +83,7 @@ class GameDetails extends Component {
             alt={ `${game.awayTeam.name} logo` }
           />
         </div>
+
         <p className="more-highlights-heading">More Highlights:</p>
 
         <section className="big-video-container">
