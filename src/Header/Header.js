@@ -1,9 +1,15 @@
 import React from 'react';
-import './Header.scss'
+import { Link } from 'react-router-dom';
+import './Header.scss';
 
 const Header = () => {
   return (
-    <h1>BaseballTube</h1>
+    <header>
+      <img src={process.env.PUBLIC_URL + '/menu.svg'} alt="hamburger-menu-btn"/>
+      <Link className="title-header" to='/games'>
+        <h1>Just Baseball.</h1>
+      </Link>
+    </header>
   )
 }
 

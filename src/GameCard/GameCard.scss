@@ -1,0 +1,75 @@
+@import '../variables.scss';
+
+.game-card-link {
+  color: $blueaqua;
+  text-decoration: none;
+  margin: 15px;
+}
+
+.game-card {
+  border: 3px solid $blueaqua;
+  border-radius: 4px;
+  color: $white;
+  font-size: 22px;
+  margin: 0;
+  padding: 0%;
+  width: 350px;
+}
+
+.team-logo {
+  object-fit: contain;
+  height: 35px;
+  width: 35px;
+  padding: 5px;
+  background: lightBlue;
+  box-shadow: inset 0px 0px 8px 2px #04c6fb;
+}
+
+.away-team-container, .home-team-container {
+  border-bottom: 1px solid $blueaqua;
+  border-top: 1px solid $blueaqua;
+  margin: 0;
+  margin: 0;
+  padding: 0%;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-areas:
+    "logo name score";
+  text-align: left;
+  >h3 {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: left;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  >span {
+    grid-area: score;
+    border-left: 2px solid $blueaqua;
+    font-weight: 700;
+    margin-right: 4%;
+    text-align: center;
+    width: 49px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.game-card:hover {
+  border: 3px solid $white;
+  box-shadow: inset 0 0 20px 6px $blueaqua;
+  transition: .3s ease;
+  >.away-team-container, .home-team-container {
+    border-bottom: 1px solid $white;
+    border-top: 1px solid $white;
+    >img {
+      // background: $blueaqua;
+    }
+    >span {
+      border-left: 2px solid $white;
+    }
+  }
+}
