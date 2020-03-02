@@ -33,4 +33,9 @@ h1 {
   font-size: 39px;
   margin: 0;
   padding-left: 1%;
+  >span {
+    color: $white;
+    font-size: 1.2vw;
+    vertical-align: top;
+  }
 }
