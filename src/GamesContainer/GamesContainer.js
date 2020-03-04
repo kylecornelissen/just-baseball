@@ -8,7 +8,7 @@ import {setGames} from '../actions/actions';
 
 class GamesContainer extends Component {
   async componentDidMount() {
-    const date = '08/30/2017';
+    const date = this.formatDate(new Date());
     try {
       let games = await getGames(date);
       games = this.filterGames(games.dates[0].games);
@@ -16,6 +16,10 @@ class GamesContainer extends Component {
     } catch ({message}) {
       console.log(message);
     }
+  }
+  formatDate = (date) => {
+    console.log(`${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`);
+    return `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
   }
   filterGames = (games) => {
     console.log(games);
