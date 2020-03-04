@@ -3,6 +3,7 @@ const baseURL = 'https://statsapi.mlb.com/api/v1/';
 // example: /schedule?sportId=1&startDate=07/01/2018&endDate=07/01/2018
 
 export const getGames = async (date) => {
+  date = `${date.month}/${date.day}/${date.year}`
   const params = `?sportId=1&startDate=${date}&endDate=${date}`
   const res = await fetch(`${baseURL}schedule` + params)
   if (!res.ok) {

@@ -18,8 +18,9 @@ class GameDetails extends Component {
   async componentDidMount() {
     try {
       let highlights = await getHighlights(this.props.location.state.id);
-      highlights = await this.filterHighlights(highlights.highlights.live.items);
-      this.props.setHighlights(highlights);
+      const oldHighlights = await this.filterHighlights(highlights.highlights.highlights.items);
+      const newHighlights = await this.filterHighlights(highlights.highlights.live.items);
+      this.props.setHighlights(oldHighlights.concat(newHighlights));
       this.setState({bigHighlight: this.state.recap || this.state.condensedGame|| this.props.highlights[0]});
     } catch ({message}) {
       console.log(message);
@@ -30,12 +31,15 @@ class GameDetails extends Component {
       return {
         id: highlight.id,
         title: highlight.title,
-        videoURL: highlight.playbacks[2].url,
+        videoURL: this.findVideoURL(highlight),
         time: this.formatTime(highlight.duration),
         thumbnail: highlight.image.cuts[5].src
       }
     });
     return this.grabCondensedAndRecap(highlights);
+  }
+  findVideoURL = (highlight) => {
+    return highlight.playbacks.find(pb => pb.url.includes('1280x720')).url;
   }
   grabCondensedAndRecap = (highlights) => {
     highlights.forEach((highlight, i) => {
