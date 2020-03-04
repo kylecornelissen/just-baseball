@@ -4,13 +4,56 @@
   justify-content: center;
   margin: 70px 10px;
   padding-top: 2%;
-  >h2 {
-    text-align: center;
-  }
-  >div {
+
+  >.game-cards-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+.date-selection-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10%;
+}
+
+.game-date-picker {
+  display: none;
+  justify-content: center;
+  width: 0;
+  height: 0;
+}
+
+.react-datepicker-tab {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #aeaeae;
+  border-radius: 0.3rem;
+  display: flex;
+  position: absolute;
+  left: 0;
+}
+
+.calendar-date-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  >h2 {
+    font-size: 2.5vw;
+    text-align: center;
+    margin: 0;
+  }
+  >label{
+    >img {
+      width: 55px;
+      margin: 0px 15px 10px;
+    }
   }
 }
