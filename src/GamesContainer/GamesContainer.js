@@ -28,7 +28,7 @@ class GamesContainer extends Component {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     const month = `${String(date.getMonth()+1).length < 2 ? 0 : ''}${date.getMonth()+1}`;
     const day = `${String(date.getDate()).length < 2 ? 0 : ''}${date.getDate()}`;
-    return {month, day, year: date.getFullYear(), monthABC: months[month-1]}
+    return {cleanDate: date, month, day, year: date.getFullYear(), monthABC: months[month-1]}
   }
   filterGames = (games) => {
     return games.map(game => {
@@ -59,7 +59,7 @@ class GamesContainer extends Component {
             <h2>{date.monthABC} {parseInt(date.day)}, {date.year}</h2>
             <DatePicker
               className="game-date-picker"
-              selected={new Date()}
+              selected={this.props.date.cleanDate}
               onSelect={this.handleChange}
             />
             <img src={process.env.PUBLIC_URL + '/calendar.png'} alt="calendar" />
