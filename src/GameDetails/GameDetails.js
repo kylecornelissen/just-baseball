@@ -39,7 +39,9 @@ class GameDetails extends Component {
     return this.grabCondensedAndRecap(highlights);
   }
   findVideoURL = (highlight) => {
-    return highlight.playbacks.find(pb => pb.url.includes('1280x720')).url;
+    return highlight.playbacks.find(pb => {
+      return pb.url.includes('1280x720') || pb.url.includes('2500K');
+    }).url;
   }
   grabCondensedAndRecap = (highlights) => {
     highlights.forEach((highlight, i) => {
